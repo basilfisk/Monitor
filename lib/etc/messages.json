@@ -1,0 +1,249 @@
+{
+	"CMN000": "Messages from the 'common' module",
+	"CMN001": {
+	},
+	"CMN002": {
+		"type": "error",
+		"module": "common",
+		"functn": "sendData",
+		"internal": "ECONNREFUSED: Connection refused by [_p1]"
+	},
+	"CMN003": {
+		"type": "error",
+		"module": "common",
+		"functn": "sendData",
+		"internal": "ETIMEDOUT: Request response not received by [_p1] in given time"
+	},
+	"CMN004": {
+		"type": "error",
+		"module": "common",
+		"functn": "sendData",
+		"internal": "ECONNRESET: Other side of TCP conversation to [_p1] abruptly closed its end of connection"
+	},
+	"CMN005": {
+		"type": "error",
+		"module": "common",
+		"functn": "sendData",
+		"internal": "Unknown error on [_p1] trapped: _p2"
+	},
+	
+	"CRK000": "Messages for the chkrootkit monitor functions",
+	"CRK001": {
+		"type": "info",
+		"module": "probe-rootkit",
+		"functn": "probeRootKit",
+		"internal": "Processing the output of the chkrootkit command"
+	},
+	"CRK002": {
+		"type": "info",
+		"module": "probe-rootkit",
+		"functn": "probeRootKit",
+		"internal": "Removing records from returned data using pattern [_p1]"
+	},
+	"CRK003": {
+		"type": "info",
+		"module": "probe-rootkit",
+		"functn": "probeRootKit",
+		"internal": "Excluding records from filtered set using pattern [_p1]"
+	},
+	"CRK004": {
+		"type": "info",
+		"module": "probe-rootkit",
+		"functn": "probeRootKit",
+		"internal": "No errors found by chkrootkit"
+	},
+	"CRK005": {
+		"type": "error",
+		"module": "probe-rootkit",
+		"functn": "probeRootKit",
+		"internal": "Error running command: _p1"
+	},
+	"CRK006": {
+		"type": "info",
+		"module": "probe-rootkit",
+		"functn": "probeRootKit",
+		"internal": "Sending _p1 stats to monitor daemon"
+	},
+	
+	"LOG000": "Messages for the log file monitor functions",
+	"LOG001": {
+		"type": "info",
+		"module": "probe-log",
+		"functn": "probeLog",
+		"internal": "Reading records _p1 to _p2 from _p3 log file"
+	},
+	"LOG002": {
+		"type": "info",
+		"module": "probe-log",
+		"functn": "probeLog",
+		"internal": "Removing records from returned data using pattern [_p1]"
+	},
+	"LOG003": {
+		"type": "info",
+		"module": "probe-log",
+		"functn": "probeLog",
+		"internal": "Excluding records from filtered set using pattern [_p1]"
+	},
+	"LOG004": {
+		"type": "error",
+		"module": "probe-log",
+		"functn": "probeLog",
+		"internal": "Error running exec command: _p1"
+	},
+	"LOG005": {
+		"type": "error",
+		"module": "probe-log",
+		"functn": "probeLog",
+		"internal": "Error running command: _p1"
+	},
+	"LOG006": {
+		"type": "info",
+		"module": "probe-log",
+		"functn": "probeLog",
+		"internal": "Sending _p1 stats to monitor daemon"
+	},
+	
+	"MON000": "Messages for the core monitor functions",
+	"MON001": {
+		"type": "error",
+		"module": "monitor",
+		"functn": "start_mongo",
+		"internal": "Connection to Mongo database [_p1] on [_p2] failed: _p3"
+	},
+	"MON002": {
+		"type": "info",
+		"module": "monitor",
+		"functn": "start_mongo",
+		"internal": "Connected to Mongo database [_p1] on [_p2]"
+	},
+	"MON003": {
+		"type": "info",
+		"module": "monitor",
+		"functn": "write_data",
+		"internal": "Inserting data into collection [_p1] on database [_p2]"
+	},
+	"MON004": {
+		"type": "error",
+		"module": "monitor",
+		"functn": "listener",
+		"internal": "ECONNREFUSED: Connection refused by [_p1]"
+	},
+	"MON005": {
+		"type": "error",
+		"module": "monitor",
+		"functn": "listener",
+		"internal": "ETIMEDOUT: Request response not received by [_p1] in given time"
+	},
+	"MON006": {
+		"type": "error",
+		"module": "monitor",
+		"functn": "listener",
+		"internal": "ECONNRESET: Other side of TCP conversation to [_p1] abruptly closed its end of connection"
+	},
+	"MON007": {
+		"type": "error",
+		"module": "monitor",
+		"functn": "listener",
+		"internal": "Unknown error on [_p1] trapped: _p2"
+	},
+	"MON008": {
+		"type": "info",
+		"module": "monitor",
+		"functn": "listener",
+		"internal": "Monitor daemon started and listening on _p1:_p2"
+	},
+	"MON009": {
+		"type": "error",
+		"module": "interface",
+		"functn": "global",
+		"internal": "Uncaught exception"
+	},
+	"MON010": {
+		"type": "info",
+		"module": "monitor",
+		"functn": "listener",
+		"internal": "In-bound message received"
+	},
+	"MON011": {
+		"type": "error",
+		"module": "monitor",
+		"functn": "write_data",
+		"internal": "Error inserting data into collection [_p1] on database [_p2]: _p3"
+	},
+	"MON012": {
+		"type": "info",
+		"module": "monitor",
+		"functn": "global",
+		"internal": "Starting function [_p1] to run every _p2 seconds"
+	},
+	"MON013": {
+		"type": "info",
+		"module": "monitor",
+		"functn": "start_probes",
+		"internal": "Starting probe [_p1]"
+	},
+	"MON014": {
+		"type": "error",
+		"module": "monitor",
+		"functn": "start_probes",
+		"internal": "Unknown type of probe [_p1]"
+	},
+	
+	"SRV000": "Messages for the server monitoring functions",
+	"SRV001": {
+		"type": "error",
+		"module": "probe-server",
+		"functn": "system_probe",
+		"internal": "Error running exec command for 'top': _p1"
+	},
+	"SRV002": {
+		"type": "error",
+		"module": "probe-server",
+		"functn": "system_probe",
+		"internal": "Error running 'top' command: _p1"
+	},
+	"SRV003": {
+		"type": "info",
+		"module": "probe-server",
+		"functn": "probeProcess",
+		"internal": "Removing records from returned data using pattern [_p1]"
+	},
+	"SRV004": {
+		"type": "info",
+		"module": "probe-server",
+		"functn": "probeProcess",
+		"internal": "Excluding records from filtered set using pattern [_p1]"
+	},
+	"SRV005": {
+		"type": "error",
+		"module": "probe-server",
+		"functn": "probeProcess",
+		"internal": "Error running exec command for 'ps': _p1"
+	},
+	"SRV006": {
+		"type": "error",
+		"module": "probe-server",
+		"functn": "probeProcess",
+		"internal": "Error running 'ps' command: _p1"
+	},
+	"SRV007": {
+		"type": "info",
+		"module": "probe-server",
+		"functn": "probeProcess",
+		"internal": "Running the server process probe"
+	},
+	"SRV008": {
+		"type": "info",
+		"module": "probe-server",
+		"functn": "probeSystem",
+		"internal": "Running the server system probe"
+	},
+	"SRV009": {
+		"type": "info",
+		"module": "probe-server",
+		"functn": "check_status",
+		"internal": "Sending server probe data to the monitor daemon"
+	},
+	"ZZZ": {
+	}
+}

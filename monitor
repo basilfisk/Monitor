@@ -1,0 +1,20 @@
+#!/bin/bash
+# ---------------------------------------------------------------------------------------------
+# 
+# Starts and stops the daemon process named in the DAEMON variable
+# 
+# ---------------------------------------------------------------------------------------------
+
+DAEMON=monitor.js
+DIR=/home/bf/Dropbox/Development/Monitor
+NAME="Server Monitoring Scripts"
+
+PID=`ps -ef | grep $DAEMON | grep -v "grep" | cut -c10-14`
+if [ "$PID" != "" ]; then
+	echo "Killing $NAME [$PID]"
+	kill -9 $PID
+else
+	echo "Starting $NAME"
+	( node $DIR/$DAEMON & ) &
+fi
+

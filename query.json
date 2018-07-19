@@ -1,0 +1,28 @@
+{
+	"test" : {
+		"summary" : "Find API events that match 'process_request', sorted in descending order",
+		"url" : "mongodb://localhost:27017/events",
+		"collection" : "apiEvents",
+		"cols" : {"time":1,"fn":1,"username":1},
+		"rows" : {"fn":"process_request"},
+		"order" : {"_id":-1}
+	},
+	"apiErrors" : {
+		"summary" : "Find last 100 API error events",
+		"url" : "mongodb://localhost:27017/events",
+		"collection" : "apiEvents",
+		"cols" : {"type":0,"sid":0,"_id":0},
+		"rows" : {"type":"error"},
+		"order" : {"_id":1},
+		"limit" : "100"
+	},
+	"apiLast100" : {
+		"summary" : "Find last 100 API information events",
+		"url" : "mongodb://localhost:27017/events",
+		"collection" : "apiEvents",
+		"cols" : {"type":0,"sid":0,"_id":0},
+		"rows" : {"type":"info"},
+		"order" : {"_id":1},
+		"limit" : "100"
+	}
+}

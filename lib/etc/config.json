@@ -1,0 +1,167 @@
+{
+	"monitor":{
+		"host":"localhost",
+		"port":"8020"
+	},
+	"mongo":{
+		"host":"localhost",
+		"port":"27017"
+	},
+	"log":{
+		"file":"/var/log/breato/monitor.log"
+	},
+	"probes":{
+		"apache-error":{
+			"description":"Apache error logs",
+			"active":"true",
+			"type":"log",
+			"file":"/var/log/breato/apache/error.log",
+			"lastrecord":"tmp/lastrecord.apacheerror",
+			"filter":{
+				"include":["error"],
+				"exclude":[]
+			},
+			"parse":{
+				"type":"delimiter",
+				"pattern":"] ",
+				"fields":["timestamp","severity","pid","address","message"],
+				"cleanse":["^\\[","^\\[:","^\\[pid ","^\\[client ",""]
+			},
+			"mongo":{
+				"database":"monitor",
+				"collection":"apacheError"
+			},
+			"usage":{
+				"interval":"300",
+				"start":"5"
+			}
+		},
+		"chkrootkit":{
+			"description":"Output from the chkrootkit command (run daily)",
+			"active":"true",
+			"type":"command",
+			"command":"lib/chkrootkit",
+			"filter":{
+				"include":[],
+				"exclude":["no packet sniffer","no suspect files","node_modules","not found",
+						   "not infected","not tested","nothing deleted","nothing detected",
+						   "nothing found","ROOTDIR","Searching for"]
+			},
+			"mongo":{
+				"database":"monitor",
+				"collection":"chkRootKit"
+			},
+			"usage":{
+				"interval":"86400",
+				"start":"5"
+			}
+		},
+		"gateway-listener":{
+			"description":"VisualSaaS Gateway v1 Listener logs",
+			"active":"true",
+			"type":"log",
+			"file":"/var/log/breato/listener.log",
+			"lastrecord":"tmp/lastrecord.gwlistener",
+			"filter":{
+				"include":["read"],
+				"exclude":["debug","common"]
+			},
+			"parse":{
+				"type":"delimiter",
+				"pattern":" # ",
+				"fields":["timestamp","pid","type","module","function","code","message"],
+				"cleanse":["","","","","","",""]
+			},
+			"mongo":{
+				"database":"monitor",
+				"collection":"gatewayListener"
+			},
+			"usage":{
+				"interval":"300",
+				"start":"15"
+			}
+		},
+		"gateway-server":{
+			"description":"VisualSaaS Gateway v1 Server logs",
+			"active":"true",
+			"type":"log",
+			"file":"/var/log/breato/server.log",
+			"lastrecord":"tmp/lastrecord.gwserver",
+			"filter":{
+				"include":["read"],
+				"exclude":["debug","common"]
+			},
+			"parse":{
+				"type":"delimiter",
+				"pattern":" # ",
+				"fields":["timestamp","pid","type","module","function","code","message"],
+				"cleanse":["","","","","","",""]
+			},
+			"mongo":{
+				"database":"monitor",
+				"collection":"gatewayServer"
+			},
+			"usage":{
+				"interval":"300",
+				"start":"25"
+			}
+		},
+		"postgres":{
+			"description":"PostgreSQL database monitoring",
+			"active":"false",
+			"type":"postgres",
+			"check":{
+				"XXXscript":"/home/bf/Downloads/check_postgresql.pl",
+				"XXXoption":"dbstats"
+			},
+			"servers" : {
+				"db1" : {
+					"host":"188.40.140.8",
+					"port":"16432",
+					"username":"postgres",
+					"password":"breato_admin"
+				},
+				"s2" : {
+					"host":"78.47.155.69",
+					"port":"16432",
+					"username":"postgres",
+					"password":"breato_admin"
+				},
+				"t2" : {
+					"host":"78.46.228.236",
+					"port":"16432",
+					"username":"postgres",
+					"password":"breato_admin"
+				}
+			},
+			"usage":{
+				"XXXinterval":"300",
+				"XXXstart":"45"
+			}
+		},
+		"server":{
+			"description":"Server system/process monitoring",
+			"active":"true",
+			"type":"server",
+			"check":{
+				"process":{
+					"filter":{
+						"include":["root"],
+						"exclude":["\\["]
+					}
+				},
+				"system":{
+					"cycles":"3"
+				}
+			},
+			"mongo":{
+				"database":"monitor",
+				"collection":"serverStats"
+			},
+			"usage":{
+				"interval":"300",
+				"start":"35"
+			}
+		}
+	}
+}
